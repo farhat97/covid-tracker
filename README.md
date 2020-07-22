@@ -1,6 +1,12 @@
 # CovidTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+This project is intended to show coronavirus cases based on location. Information about used APIs can be found in the following sections:
+
+## COVID-19 Tracker
+*Information about COVID-19 Tracker API*
+
+# Angular Related Info
+
 
 ## Development server
 

@@ -1,0 +1,13 @@
+.api_card
+{
+    width: 70%;
+    text-align: center;
+    background-color: aqua;
+    
+}
+
+#api_btn
+{
+    width: 45%;
+    margin-left: 10px;
+}

@@ -1,9 +1,11 @@
 # CovidTracker
 
-This project is intended to show coronavirus cases based on location. Information about used APIs can be found in the following sections:
+This project is intended to show coronavirus cases based on location. It is intended to work as development practice for Angular and ASP.NET, using different COVID-19 APIs to make distinctions among their results.
+
+Information about used APIs can be found in the following sections:
 
 ## COVID-19 Tracker
-*Information about COVID-19 Tracker API*
+*Information about COVID-19 Tracker API goes here*
 
 # Angular Related Info
 

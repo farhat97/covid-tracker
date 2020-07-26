@@ -7,6 +7,9 @@ Information about used APIs can be found in the following sections:
 ## COVID-19 Tracker
 *Information about COVID-19 Tracker API goes here*
 
+## The Covid Tracking Project
+Volunteers provide data on number of tests, cases, hospitalizations and more. To read more, go to: https://covidtracking.com/
+
 # Angular Related Info
 
 

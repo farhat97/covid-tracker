@@ -1,1 +1,14 @@
 <p>covid-tracking-project works!</p>
+<button (click)="callApi()">Call API</button>
+
+<!-- <span> {{ apiResult }} </span> -->
+
+<!-- display results in a table -->
+<table class="table">
+    <thead>
+        <tr *ngFor="let key of objectKeys(apiResultArray)">
+            <th scope="row"> {{ key }} </th>
+            <th scope="row"> {{ apiResultArray[key] }} </th>
+        </tr>
+    </thead>
+</table>

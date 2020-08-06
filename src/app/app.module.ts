@@ -8,11 +8,13 @@ import { CovidTrackingProjectComponent } from './covid-tracking-project/covid-tr
 import { ApiNavigationComponent } from './api-navigation/api-navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { CovidTrackingProjectModule } from './covid-tracking-project/covid-tracking-project.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CovidTrackingProjectComponent,
+    // CovidTrackingProjectComponent,
     ApiNavigationComponent
   ],
   imports: [
@@ -20,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CovidTrackingProjectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

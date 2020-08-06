@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CovidTrackingProjectService } from '../shared/covid-tracking-project.service';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-covid-tracking-project',
@@ -7,15 +11,26 @@ import { CovidTrackingProjectService } from '../shared/covid-tracking-project.se
   styleUrls: ['./covid-tracking-project.component.css']
 })
 export class CovidTrackingProjectComponent implements OnInit {
-
-  constructor(private apiService: CovidTrackingProjectService) { }
   
   // objectKeys object is used to be able to iterate both keys and values from apiResultArray with *ngFor
   objectKeys = Object.keys;
-  apiResultArray = { };
+  apiResultObj = { };
+  tablePage: number = 1;
+  
+  apiResultArray = [ ];
+  // angular material table data
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  constructor(private apiService: CovidTrackingProjectService) { 
+    // assign data to the data source for angular material table
+    this.dataSource = new MatTableDataSource(this.apiResultArray);
+  }
 
   ngOnInit(): void {
-
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   callApi() {
@@ -58,7 +73,8 @@ export class CovidTrackingProjectComponent implements OnInit {
     covidApiResults["# of Deaths"] = resultObj["death"];
     covidApiResults["Increase in Deaths"] = resultObj["deathIncrease"];
 
-    this.apiResultArray = covidApiResults;
+    this.apiResultObj = covidApiResults;
+    // this.apiResultArray.push(covidApiResults);
   }
 
 }

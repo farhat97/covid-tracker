@@ -1,32 +1,16 @@
-<p>covid-tracking-project works!</p>
-<button (click)="callApi()">Call API</button>
-
-<!-- <span> {{ apiResult }} </span> -->
-
-<!-- display results in a table. Bootstrap version -->
-<table class="table table-striped" cellspacing="0" width="65%" style="width: 70%;">
-    <thead>
-        <tr *ngFor="let key of objectKeys(apiResultObj) | paginate: { itemsPerPage: 5, currentPage: tablePage }">
-            <td scope="row"> {{ key }} </td>
-            <td scope="row"> {{ apiResultObj[key] }} </td>
-        </tr>
-    </thead>
-</table>
-<pagination-controls (pageChange)="tablePage = $event"></pagination-controls>
-
-<!-- display results in a table. Angular Material version -->
-<!-- <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-        <ng-container matColumnDef="attr">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Attribute </th>
-            <td mat-cell *mattCellDef="let row"> {{ row }} </td>
-        </ng-container>
-        <ng-container matColumnDef="val">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> value </th>
-            <td mat-cell *mattCellDef="let row"> {{ row }} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<div *ngIf="isApiDataAvailable">
+    <!-- display results in a table. Bootstrap version -->
+    <table class="table table-striped" cellspacing="0" width="65%" style="width: 70%;">
+        <thead>
+            <tr *ngFor="let key of objectKeys(apiResultObj) | paginate: { itemsPerPage: 5, currentPage: tablePage }">
+                <td scope="row"> {{ key }} </td>
+                <td scope="row"> {{ apiResultObj[key] }} </td>
+            </tr>
+        </thead>
     </table>
-</div> -->
+    <pagination-controls (pageChange)="tablePage = $event"></pagination-controls>
+</div>
+
+<div class="spinner-border text-primary" *ngIf="!isApiDataAvailable">
+    <span class="sr-only">Loading...</span>
+</div>
